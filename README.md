@@ -1,20 +1,20 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+This repository is the starting point for the CleanSpark back-end developer exercise. The full solution will be a .NET application that mimics the functionality of a coffee vending machine. It will provide the means of ordering one or more customizable cups of coffee, providing payment, receiving change, and dispensing the correct product. 
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+# Assumptions/Constraints
+- The solution should use the existing WinForms front end as the user interface. The interface can be changed but is not the focus of this exercise.
+- The solution should not depend on any external web services.
+- The solution should not require a persistent data store.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
-
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
-
-If you want to learn more about creating good readme files then refer the following [guidelines](https://www.visualstudio.com/en-us/docs/git/create-a-readme). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+# Functionality/Tasks Performed
+- Order coffee in 3 sizes (small for $1.75, medium for $2.00, large for $2.25).
+- Allow adding sugar and cream in discrete increments to each coffee order (from 1 – 3 sugars ($0.25 each) and from 1 – 3 creamers ($0.50 each)).
+- “Dispense” coffee when an order is completed if adequate payment has been provided, and display money remaining in payment transaction.
+- Give warning if adequate payment has not been provided.
+- Allow multiple coffee orders per payment transaction.
+- Allow adding money in standard monetary increments (from $0.05 to $20).
+- Allow user to specify the end of a payment transaction and dispense change.
+- Developer should provide a minimum set of passing unit tests
+ 
+# Evaluation Criteria
+We are looking for concise and readable code that meets the component specifications. Where the component specifications are ambiguous or lacking, we are looking for you to make a decision that allows you to move forward without compromising the basic functionality of the application. We are expecting this task to take you 1-3 hours; please do not spend more than 5 hours on this task.
