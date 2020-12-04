@@ -1,0 +1,17 @@
+{
+  "sizePrices": {
+    "small": 1.75,
+    "medium": 2.0,
+    "large": 2.25
+  },
+  "extras": {
+    "cream": {
+      "price": 0.25,
+      "maxQty": 3
+    },
+    "sugar": {
+      "price": 0.5,
+      "maxQty": 3
+    }
+  }
+}

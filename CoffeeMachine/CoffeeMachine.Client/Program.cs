@@ -1,12 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
+using CoffeeMachine.Models;
+using CoffeeMachine.Service;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CoffeeMachine.Client
 {
-	static class Program
+    static class Program
 	{
 		/// <summary>
 		/// The main entry point for the application.
@@ -16,7 +17,27 @@ namespace CoffeeMachine.Client
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new frmMain());
+
+			var serviceProvider = ConfigureServices();
+			var frmMain = serviceProvider.GetService<frmMain>();
+
+			Application.Run(frmMain);
+		}
+
+		static IServiceProvider ConfigureServices()
+		{
+			var services = new ServiceCollection();
+
+			var path = Path.Combine(Directory.GetCurrentDirectory(), "coffee-machine-configuration.json");
+			var config = new CoffeeMachineConfiguration(path);
+
+			services
+				.AddSingleton(config)
+				.AddSingleton<frmMain>()
+				.AddTransient<ITransactionHandler, TransactionHandler>()
+				.AddTransient<ICoffeeOrderHandler, CoffeeOrderHandler>();
+
+			return services.BuildServiceProvider();
 		}
 	}
 }
